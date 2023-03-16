@@ -1,11 +1,15 @@
-let dzielniki = 0;
+let Dzielniki = 0;
+let CzyNaturalna = false;
+let CzyPierwsza = false;
 
 function CoToZaLiczba(Liczba) {
   document.write(Liczba + "<br>");
   if (Liczba > 0) {
     document.write("Liczba jest naturalna");
+    CzyNaturalna = 1;
   } else {
     document.write("Liczba nie jest naturalna");
+    CzyNaturalna = 0;
   }
 
   document.write("<br>");
@@ -28,17 +32,28 @@ function CoToZaLiczba(Liczba) {
 
   for (let index = 1; index <= Liczba; index++) {
     if (Liczba % index == 0) {
-      dzielniki++;
+      Dzielniki++;
     }
   }
-  if (dzielniki == 2) {
+  if (Dzielniki == 2) {
     document.write("Liczba jest pierwsza");
+    CzyPierwsza = 1;
   } else {
     document.write("Liczba nie jest pierwsza");
+    CzyPierwsza = 0;
   }
 
   document.write("<br>");
 
-  //reset wartosci
-  dzielniki = 0;
+  if (CzyNaturalna == 1 && CzyPierwsza == 0 && Liczba > 1) {
+    document.write("Liczba jest złożona");
+  } else {
+    document.write("Liczba nie jest złożona");
+  }
+
+  document.write("<br>");
+
+  Dzielniki = 0;
+  CzyNaturalna = 0;
+  CzyPierwsza = 0;
 }
